@@ -24,9 +24,11 @@ async def show_categories(message: types.Message):
 
 @shop_router.message(F.text.lower() == "триллер")
 async def show_triller(message: types.Message):
-    await message.answer("Книги жанра Триллер")
+    kb = types.ReplyKeyboardRemove()
+    await message.answer("Книги жанра Триллер", reply_markup=kb)
 
 
 @shop_router.message(F.text.lower() == "Фантастика")
 async def show_triller(message: types.Message):
-    await message.answer("Книги жанра Триллер")
+    kb = types.ReplyKeyboardRemove()
+    await message.answer("Книги жанра Триллер", reply_markup=kb)
