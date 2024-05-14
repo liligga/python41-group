@@ -14,7 +14,7 @@ async def show_categories(message: types.Message):
                 types.KeyboardButton(text="Триллер")
             ],
             [
-                types.KeyboardButton(text="Художественная литература"),
+                types.KeyboardButton(text="хоррор"),
             ]
         ],
         resize_keyboard=True
@@ -22,13 +22,11 @@ async def show_categories(message: types.Message):
     await message.answer("Книги по жанрам", reply_markup=kb)
 
 
-@shop_router.message(F.text.lower() == "триллер")
-async def show_triller(message: types.Message):
-    kb = types.ReplyKeyboardRemove()
-    await message.answer("Книги жанра Триллер", reply_markup=kb)
+book_genres = ("триллер", "хоррор", "фантастика")
 
 
-@shop_router.message(F.text.lower() == "Фантастика")
+@shop_router.message(F.text.lower().in_(book_genres))
 async def show_triller(message: types.Message):
+    genre = message.text
     kb = types.ReplyKeyboardRemove()
-    await message.answer("Книги жанра Триллер", reply_markup=kb)
+    await message.answer(f"Книги жанра {genre}", reply_markup=kb)
