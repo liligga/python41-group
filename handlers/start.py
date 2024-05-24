@@ -24,6 +24,8 @@ async def start_cmd(message: types.Message):
     )
     await message.answer(f"Привет, {message.from_user.first_name}", reply_markup=kb)
     # await message.reply(f"Привет, {message.from_user.first_name}")
+    # crawler = MashinaCrawler()
+    # links = await crawler.get_links_from_all_pages()
 
 
 @start_router.callback_query(F.data == "about_us") # lambda query: query.data == "about_us"
