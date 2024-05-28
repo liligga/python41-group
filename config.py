@@ -10,10 +10,10 @@ database = Database(Path('__file__').parent / 'db.sqlite')
 
 dev = getenv("DEV", 0)
 if not dev:
-    from aiogram.client.session.aiohttp import AioHTTPSession
+    from aiogram.client.session.aiohttp import AiohttpSession
 
     print("started on serve")
-    session = AioHTTPSession(proxy=getenv("PROXY"))
+    session = AiohttpSession(proxy=getenv("PROXY"))
     bot = Bot(token=getenv("TOKEN"), session=session)
 
 else:
